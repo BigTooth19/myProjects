@@ -1,0 +1,267 @@
+/* home */
+$green-color: #009a61;
+$gray-color: #757575;
+$yahei: 'Microsoft YaHei';
+.am-header{
+    height: 64px;
+    border-top: 3px solid $green-color;
+    .am-header-cont{
+        margin: 0 auto;
+        width: 1140px;
+    }
+    .el-menu-demo{
+        float: left;
+        .el-menu-item{
+            margin-right: 5px;
+            padding: 0 12px;
+            height: 50px;
+            line-height: 50px;
+            color: $gray-color;
+            font-size: 16px;
+            font-weight: bold;
+            &.is-active{
+                color: $green-color;
+                border-color: $green-color;
+            }
+        }
+    }
+    .am-search-box{
+        float: left;
+        margin: 12px 10px 0;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 14px;
+        input{
+            height: 18px;
+            background: none;
+            font-family: $yahei;
+        }
+        i{
+            color: #999;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+    .header-user{
+        float: right;
+        margin-top: 12px;
+        @mixin chidSize {
+            display: inline-block;
+            height: 34px;
+            color: $gray-color;
+            font-size: 14px;
+            line-height: 34px;
+            text-align: center;
+        }
+        a{
+            @include chidSize;
+            width: 80px;
+            color: $green-color;
+            font-weight: bold;
+            border-radius: 3px;
+            cursor: pointer;
+            &.on{
+                background-color: $green-color;
+                color: #fff;
+            }
+        }
+        .el-icon-user-solid{
+            margin-right: 5px;
+            color: $gray-color;
+            font-size: 18px;
+            vertical-align: -1px;
+        }
+        span{
+            @include chidSize;
+        }
+    }
+}
+.el-dropdown-menu{
+    margin-top: 0!important;
+    padding-top: 0!important;
+}
+.am-container{
+    margin: 20px auto 0;
+    width: 1140px;
+    .am-side-left{
+        float: left;
+        margin-right: 30px;
+        width: 150px;
+        h4{
+            margin: 10px 0;
+            padding-left: 6px;
+            border-left: 4px solid $green-color;
+            color: #212121;
+            font-weight: bold;
+            font-size: 15px;
+        }
+        li{
+            margin-bottom: 1px;
+            padding-left: 12px;
+            line-height: 34px;
+            border-radius: 4px;
+            color: $gray-color;
+            font-size: 14px;
+            cursor: pointer;
+            &.active{
+                background-color: $green-color;
+                color: #fff;
+                font-weight: bold;
+            }
+        }
+    }
+    .am-main{
+        margin-left: 190px;
+    }
+    .am-title{
+        height: 34px;
+        line-height: 34px;
+        border-bottom: 1px solid #ddd;
+        color: #333;
+        font-size: 16px;
+        font-weight: normal;
+    }
+    .am-list{
+        padding-top: 20px;
+        color: #888;
+        font-size: 13px;
+        h5{
+            padding-bottom: 10px;
+            a{
+                line-height: 28px;
+                color: #212121;
+                font-size: 18px;
+                font-weight: normal;
+            }
+        }
+        .btm{
+            margin-top: 15px;
+            span{
+                display: inline-block;
+                margin-right: 15px;
+                color: #666;
+                vertical-align: middle;
+            }
+            .favor{
+                display: inline-block;
+                font-weight: bold;
+                .icon-zan{
+                    display: inline-block;
+                    margin-right: 8px;
+                    width: 22px;
+                    height: 22px;
+                    background-color: #999;
+                    border-radius: 22px;
+                    line-height: 22px;
+                    color: #fff;
+                    font-size: 12px;
+                    text-align: center;
+                    cursor: pointer;
+                }
+                &:hover{
+                    color: $green-color;
+                    .icon-zan{
+                        background-color: $green-color;
+                    }
+                }
+            }
+            .user{
+                color: #666;
+            }
+
+        }
+    }
+}
+
+/* write */
+$gray1-color: #ccc;
+.am-write-box{
+    .am-write-header{
+        padding: 0 35px;
+        height: 60px;
+        line-height: 60px;
+        border-top: 3px solid $green-color;
+        border-bottom: 1px solid $gray1-color;
+        h2{
+            display: inline-block;
+            color: #666;
+            font-size: 18px;
+            font-weight: normal;
+        }
+        .am-btn-issue{
+            float: right;
+            margin-top: 13px;
+            padding: 6px 12px; 
+            background-color: $green-color;
+            border-color: $green-color;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            &:hover{
+                background-color: #006741;
+            }
+        }
+    }
+    .am-article-tit{
+        margin: 40px 15px 15px;
+        height: 44px;
+        border: 1px solid $gray1-color;
+        .am-write-select{
+            float: left;
+            margin: -1px;
+            width: 84px;
+            .el-input__inner{
+                height: 46px;
+                line-height: 46px;
+            }
+        }
+        .input-box{
+            margin-left: 84px;
+            input{
+                padding: 10px 16px;
+                width: 100%;
+                height: 44px;
+                font-size: 18px;
+                font-weight: normal;
+                box-sizing: border-box;
+            }
+        }
+    }
+    .am-article-tag{
+        margin: 0 15px 15px;
+        .am-write-select{
+            width: 290px;
+            .el-input__inner{
+                height: 34px;
+                line-height: 34px;
+                font-size: 14px;
+            }
+            .el-input__icon{
+                line-height: 34px;
+            }
+        }
+    }
+}
+.am-write-select{
+    .el-input__inner{
+        border-color: $gray1-color;
+        font-size: 18px;
+    }
+    .el-select .el-input .el-select__caret{
+        color: #333;
+    }
+}
+.am-write-option{
+    &.el-select-dropdown{
+        margin-top: 0!important;
+        margin-left: 0px;
+    }
+    .popper__arrow{
+        display: none!important;
+    }
+    .el-select-dropdown__list{
+        border: 1px solid $gray1-color;
+    }
+}
