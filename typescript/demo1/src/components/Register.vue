@@ -64,7 +64,7 @@ export default class Register extends Vue {
         }
         service({
             type: 'post',
-            url: '/api/register',
+            url: '/user/register',
             data: {
                 username: this.user,
                 password: this.password

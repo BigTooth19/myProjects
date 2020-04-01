@@ -10,4 +10,5 @@ declare global {
       [elem: string]: any;
     }
   }
+  const $: any;
 }

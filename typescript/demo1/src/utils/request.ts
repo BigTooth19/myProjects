@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 const qs = require('qs');
 // 创建axios实例
 const service = (opts: any) => {
 	const CancelToken = axios.CancelToken;
-	const axiosObj = axios.create({
-		timeout: 5000, // 请求超时时间
+	const axiosObj: AxiosInstance = axios.create({
+		// timeout: 10000, // 请求超时时间
 		transformRequest: [(data: any) => {
 			const ret = qs.stringify(data);
 			return ret;
@@ -13,41 +13,31 @@ const service = (opts: any) => {
 	});
 
 	const api = process.env.NODE_ENV === 'development' ? '/api' : '';
-	interface ReqParams {
-		method: string,
-		url: string,
-		params?: typeof opts.data,
-		data?: typeof opts.data,
-		cancelToken?: typeof opts.cancel
-	}
-	const requestParams: ReqParams = {
+	const requestParams: AxiosRequestConfig = {
 		method: opts.type,
 		url: api + opts.url
 	};
-
 	// get传参是params post传参是data
 	if(opts.type === 'get') {
-		requestParams.params = opts.data;
+		requestParams.params = opts.data || {};
 	} else if(opts.type === 'post') {
-		requestParams.data = opts.data;
+		requestParams.data = opts.data || {};
 	}
-	
 	// 取消请求
 	if(opts.cancel && typeof opts.cancel === 'function') {
 		requestParams.cancelToken = new CancelToken(opts.cancel);
 	}
-
-	axiosObj(JSON.parse(JSON.stringify(requestParams))).then((res: any) => {
+	axiosObj(requestParams).then((res: any) => {
 		// 请求成功
 		opts.success(res.data);
 		// 请求完成
 		if(opts.complete && typeof opts.complete === 'function') {
-			opts.complete();
+			opts.complete(res);
 		}
 	}).catch((res: any) => {
 		// 请求完成
 		if(opts.complete && typeof opts.complete === 'function') {
-			opts.complete();
+			opts.complete(res);
 		}
 	});
 	

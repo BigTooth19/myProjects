@@ -9,14 +9,14 @@
                 <input type="text" value="" placeholder="搜索问题或关键字">
                 <i class="el-icon-search"></i>   
             </div>
-            <div v-if="!isLogin" class="header-user">
+            <div v-if="!isLogin.login" class="header-user">
                 <a @click="loginFn">登录</a>
                 <a class="on" @click="registerFn">注册</a>
             </div> 
             <div v-else class="header-user">
                 <el-dropdown @command="dropdownHandle">
                     <span class="el-dropdown-link">
-                        <i class="el-icon-user-solid"></i>{{isLogin}}<i class="el-icon-arrow-down el-icon--right"></i>
+                        <i class="el-icon-user-solid"></i>{{isLogin.username}}<i class="el-icon-arrow-down el-icon--right"></i>
                     </span>
                     <el-dropdown-menu slot="dropdown" >
                         <el-dropdown-item command="write">写文章</el-dropdown-item>
@@ -44,7 +44,7 @@ import Register from './Register.vue';
 export default class Header extends Vue {
     @State isLogin!: string;
 
-    activeIndex:string = '1';
+    activeIndex: string = '1';
     handleSelect() {
 
     }
@@ -64,7 +64,7 @@ export default class Header extends Vue {
             }
             service({
                 type: 'post',
-                url: '/api/logout',
+                url: '/user/logout',
                 success: (res: Request) => {
                     if(res.code === 0) {
                         this.$store.dispatch('setLogin');

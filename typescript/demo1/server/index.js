@@ -1,4 +1,3 @@
-const userApi = require('./api/user');
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
@@ -12,8 +11,14 @@ app.use(bodyParser.urlencoded({extended: false}));
 //     res.send(html)
 // })
 
-// 后端api路由
-app.use('/api/', userApi);
+// 用户路由
+const user = require('./api/user');
+app.use('/user/', user);
+
+// 文章接口
+const article = require('./api/article');
+app.use('/article/', article);
+
 
 // 监听端口
 app.listen(8088);

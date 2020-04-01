@@ -232,6 +232,7 @@ $gray1-color: #ccc;
     .am-article-tag{
         margin: 0 15px 15px;
         .am-write-select{
+            float: left;
             width: 290px;
             .el-input__inner{
                 height: 34px;
@@ -240,6 +241,48 @@ $gray1-color: #ccc;
             }
             .el-input__icon{
                 line-height: 34px;
+            }
+        }
+        .tag-input{
+            position: relative;
+            margin-left: 305px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            vertical-align: middle;
+            input{
+                padding-left: 10px;
+                width: 100%;
+                height: 31px;
+                line-height: 30px;
+                box-sizing: border-box;
+            }
+            .dropdown-tag{
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: 15px 10px 10px 15px;
+                width: 520px;
+                border: 1px solid #ddd;
+                box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.18);
+                span{
+                    display: inline-block;
+                    margin: 0 5px 5px 0;
+                    padding: 0 11px;
+                    height: 22px;
+                    line-height: 20px;
+                    border-radius: 11px;
+                    color: #017E66;
+                    font-size: 13px;
+                    cursor: pointer;
+                    &:hover{
+                        background-color: #017e66;
+                        color: #fff;
+                    }
+                }
+                &.active{
+                    display: block;
+                }
             }
         }
     }
@@ -263,5 +306,122 @@ $gray1-color: #ccc;
     }
     .el-select-dropdown__list{
         border: 1px solid $gray1-color;
+    }
+}
+.am-article-editor{
+    position: absolute;
+    right: 15px;
+    left: 15px;
+    top: 239px;
+    bottom: 15px;
+    z-index: 2;
+    padding-top: 30px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    .am-toobar{
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        right: 0;
+        height: 30px;
+        border-bottom: 1px solid #ccc;
+        box-sizing: content-box;
+        overflow: hidden;
+        li{
+            float: left;
+            width: 30px;
+            height: 30px;
+        }
+        .am-icon{
+            display: block;   
+            width: 20px;
+            height: 20px;
+            border: 5px solid #fff;
+            background-repeat: no-repeat;
+            background-image: url(../images/icon-group-editor.png);
+            background-size: 380px 60px;
+            box-sizing: content-box;
+            :hover{
+                background-color: #F6F6F6;
+                border-color: #F6F6F6;
+                cursor: pointer;
+            }
+        }
+        .am-icon-img{
+            background-position: -100px 0px;
+            :hover{
+                background-position: -100px -40px;
+            }
+        }
+    }
+    .am-edit{
+        height: 100%;
+        width: 50%;
+        textarea{
+            resize: none;
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+            font-size: 14px;
+            color: #333;
+            box-sizing: border-box;
+            border: none;
+            &:focus{
+                box-shadow: none;
+            }
+        }
+    }
+    .am-edit-preview{
+        position: absolute;
+        z-index: 2;
+        right: 0;
+        top: 30px;
+        bottom: 0;
+        width: 50%;
+        padding: 8px;
+        border-left: 1px solid #ccc;
+        overflow: auto;
+        box-sizing: border-box;
+        p{
+            margin-top: 15px;
+            line-height: 26px;
+        }
+        :first-child{
+            margin-top: 0;
+        }
+        img{
+            display: block;
+            max-width: 100%;
+        }
+        strong{
+            font-weight: bold;
+        }
+        blockquote{
+            padding: 15px;
+            margin-top: 15px;
+            background-color: #f7f7f7;
+            border-left: 6px solid #b4b4b4;
+            word-break: break-word!important;
+            word-break: break-all;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 30px;
+        }
+        ul{
+            margin-top: 15px;
+            li{
+                margin-top: 5px;
+                list-style: square inside;
+            }
+        }
+        ol{
+            margin-top: 15px;
+            li{
+                margin-top: 5px;
+                list-style: decimal inside;
+            }
+        }
     }
 }

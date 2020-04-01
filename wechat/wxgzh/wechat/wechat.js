@@ -209,11 +209,13 @@ class Wechat {
 	}
 }
 
-(async ()=> {
-	const w = new Wechat();
-	// let result = await w.deleteMenu();
-	// result = await w.createMenu(menu);
-	const data = await w.fetchTicket();
-	console.log(data);
+// (async ()=> {
+// 	const w = new Wechat();
+// 	// let result = await w.deleteMenu();
+// 	// result = await w.createMenu(menu);
+// 	const data = await w.fetchTicket();
+// 	console.log(data);
 
-})();
+// })();
+
+module.exports = Wechat;

@@ -63,7 +63,7 @@ export default class Login extends Vue {
         }
         service({
             type: 'post',
-            url: '/api/login',
+            url: '/user/login',
             data: {
                 username: this.user,
                 password: this.password

@@ -32,6 +32,14 @@
 		"arrow-parens": false,
 		"semicolon": [true, "always", "ignore-interfaces"],
 		"no-var-requires": false,
-		"prefer-const": false
+		"prefer-const": false,
+		"max-line-length" : false,
+		"member-ordering": false,
+		"align": false,
+		"one-variable-per-declaration": false,
+		"radix": false,
+		"strictPropertyInitialization": false,
+		"only-arrow-functions": false,
+		"triple-equals": false
 	}
 }

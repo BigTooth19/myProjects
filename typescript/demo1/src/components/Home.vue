@@ -9,9 +9,7 @@
                 </ul>
                 <h4>技术频道</h4>
                 <ul>
-                    <li>前端</li>
-                    <li>后端</li>
-                    <li>小程序</li>
+                    <li v-for="(item,index) in features" :key="`features_${index}`">{{item}}</li>
                 </ul>
             </div>
             <div class="am-main">
@@ -32,14 +30,18 @@
 <script lang="ts">
 import '../assets/sass/page.scss';
 import { Component, Vue } from 'vue-property-decorator';
+import { State } from 'vuex-class';
 import Header from './Header.vue';
-
+interface LabelledValue {
+    label: string;
+    }
 @Component({
     components: {
         Header
     }
 })
 export default class Home extends Vue {
-    
+    @State features !: string[];
+
 }
 </script>

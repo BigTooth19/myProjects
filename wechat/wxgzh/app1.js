@@ -3,7 +3,7 @@ const sha1 = require('sha1');
 const ejs = require('ejs');
 
 const app = express()
-const port = 3002
+const port = 3033
 
 const auth = require('./wechat/auth');
 
@@ -12,10 +12,6 @@ const Wechat = require('./wechat/wechat');
 const wechatApi = new Wechat(); //创建实例对象
 const {url} = require('./config');
 
-//配置模块资源目录
-app.set('views', './views');
-// 配置模块引擎
-app.set('view engine', 'ejs');
 //配置模块资源目录
 app.set('views', './views');
 // 配置模块引擎
@@ -43,36 +39,11 @@ app.get('/', async (req, res) => {
     const str = arr.sort().join('&');
     // 进行sha1加密，最终成生signature
     const signature = sha1(str);
-    // 将渲染好的页面返回给服务器
-    res.render('index', {
-        signature,
-        timestamp,
-        noncestr
-    });
-    // ejs.renderFile('./views/index.ejs', {
-    //     title: 'ejs-index',  // 渲染的数据key: 对应到了ejs中的title
-    //     index: '首页'},  // 渲染的数据key: 对应到了ejs中的index
-    //     (err, data) => {
-    //     if (err ) {
-    //         console.log(err);
-    //     } else {
-    //         console.log(data);
-    //         res.end(data);
-    //     }
-    // })
+	// 将渲染好的页面返回给服务器
+	res.render('search');
 });
 // 接收处理所有消息
 app.use(auth());
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
-
-// http.createServer((req, res) => {
-//     if (req.url === '/') {
-//         res.writeHead(200, {
-//             'Content-Type': 'text/html' 
-//         });
-//         // 渲染文件 index.ejs
-        
-//     }
-// }).listen(3002);
