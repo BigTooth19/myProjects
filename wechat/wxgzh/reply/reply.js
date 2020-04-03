@@ -20,9 +20,6 @@ module.exports = (message) => {
 		} else if(message.Content.match('爱')) {
 			content = '我爱你~';
 		}
-	} else if(message.MsgType === 'image') {
-		opts.msgType = 'image';
-		opts.mediaId = message.MediaId;
 	} else if(message.MsgType === 'voice') {
 		opts.msgType = 'voice';
 		opts.mediaId = message.MediaId;
@@ -34,21 +31,22 @@ module.exports = (message) => {
 			title: '娃娃',
 			description: '娃娃'
 		}
-	} else if(message.MsgType === 'location') {
-		content = `维度:${message.Location_X} 经度:${message.Location_Y} 缩放:${message.Scale} 地理位置信息:${message.Label}`;
-	} else if(message.Event === 'subscribe') {
-		content += '欢迎您的关注';
-		if(message.EventKey) {
-			content += '用户扫描带参数的二维码关注';
-		}
+	}else if(message.Event === 'subscribe') {
+		content = `欢迎您的关注\n
+					回复 首页 能看到电影预告片\n
+					回复 热门 能看到热门\n
+					回复 文本 能查看指定电影信息\n
+					回复 语音 能查看指定电影信息 \n
+					也可以点击下面的菜单按钮来了解公众号`;
 	} else if(message.Event === 'unsubscribe') {
 		console.log('取消关注');
-	} else if(message.Event === 'SCAN') {
-		content += '用户已经关注过';
-	} else if(message.Event === 'LOCATION') {
-		content = `维度:${message.Latitude} 经度:${message.Longitude} 缩放:${message.Precision} 地理位置信息:${message.Label}`;
 	} else if(message.Event === 'CLICK') {
-		content = '您点击了按钮:${message.EventKey}';
+		content = `您可以按照以下提示来操作\n
+					回复 首页 能看到电影预告片\n
+					回复 热门 能看到热门\n
+					回复 文本 能查看指定电影信息\n
+					回复 语音 能查看指定电影信息 \n
+					也可以点击下面的菜单按钮来了解公众号`;
 	}
 
 	opts.content = content;
