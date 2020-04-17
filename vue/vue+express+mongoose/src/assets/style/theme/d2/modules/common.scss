@@ -1,0 +1,262 @@
+// 背景颜色
+$bg-color-primary: #1A7DE1; // 蓝色（主题背景色）
+$bg-color-yellow: #D99E00; // 黄色
+$bg-color-green: #27B262; // 绿色
+$bg-color-red: #BC3F3F; // 红色
+$bg-color-gray: #8392B0; // 灰色
+
+$bg-color-sub1: #020A12; // 辅助背景色
+$bg-color-sub2: #252934;
+$bg-color-sub3: #3B4150;
+$bg-color-sub4: #565E72;
+$bg-color-sub5: #8192B1;
+
+// 文本颜色
+$text-color-primary: #1A7DE1; // 蓝色（主题文本色）
+$text-color-yellow: #D99E00; // 黄色
+$text-color-green: #27B262; // 绿色
+$text-color-red: #BC3F3F; // 红色
+$text-color-gray: #8392B0; // 灰色
+
+$text-color-main: rgba(255,255,255,0.9); // 白色0.9
+$text-color-second: rgba(255,255,255,0.65); // 白色0.65
+$text-color-placeholder: rgba(255,255,255,0.38); // 白色0.3
+
+$text-color-sub1: #020A12; // 辅助文本色
+$text-color-sub2: #252934;
+$text-color-sub3: #3B4150;
+$text-color-sub4: #565E72;
+$text-color-sub5: #8192B1;
+
+// 滚动条颜色
+$scrollbar-thumb: #565E72;
+$scrollbar-thumb-hover: #8192B1;
+
+body {
+  color: $text-color-main;
+}
+dl,dd,ul,ol,p,h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+.zh-input {
+  border: none;
+  padding: 0;
+}
+// 浮动
+.zh-fl {
+  float: left;
+}
+.zh-fr {
+  float: right;
+}
+.zh-clearfix {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+// 宽度
+.zh-width-80 {
+  width: 80px !important;
+}
+.zh-width-100 {
+  width: 100px !important;
+}
+.zh-width-120 {
+  width: 120px !important;
+}
+.zh-width-140 {
+  width: 140px !important;
+}
+.zh-width-160 {
+  width: 160px !important;
+}
+.zh-width-180 {
+  width: 180px !important;
+}
+.zh-width-200 {
+  width: 200px !important;
+}
+.zh-width-240 {
+  width: 240px !important;
+}
+.zh-width-280 {
+  width: 280px !important;
+}
+// 外间距
+.zh-ml-8 {
+  margin-left: 8px !important;
+}
+.zh-ml-16 {
+  margin-left: 16px !important;
+}
+.zh-mr-8 {
+  margin-right: 8px !important;
+}
+.zh-mr-16 {
+  margin-right: 16px !important;
+}
+.zh-mt-8 {
+  margin-top: 8px !important;
+}
+.zh-mt-16 {
+  margin-top: 16px !important;
+}
+.zh-mb-8 {
+  margin-bottom: 8px !important;
+}
+.zh-mb-16 {
+  margin-bottom: 16px !important;
+}
+// 主内容标题
+.zh-main-title {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .zh-left {
+    float: left;
+    h2 {
+      margin: 0;
+      font-size: 16px;
+      line-height: 32px;
+    }
+  }
+  .zh-right {
+    float: right;
+  }
+}
+.zh-cell-interaction {
+  text-decoration: underline;
+  color: $text-color-main;
+}
+// 滚动条
+.zh-scrollbar {
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-thumb;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $scrollbar-thumb-hover;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+}
+// 文本域
+textarea {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-thumb;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $scrollbar-thumb-hover;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+}
+// 文本状态色
+.zh-text-white {
+  color: $text-color-main !important;
+}
+.zh-text-red {
+  color: $text-color-red !important;
+}
+.zh-text-yellow {
+  color: $text-color-yellow !important;
+}
+.zh-text-green {
+  color: $text-color-green !important;
+}
+.zh-text-blue {
+  color: $text-color-primary !important;
+}
+.zh-text-gray {
+  color: $text-color-gray !important;
+}
+.zh-text-gray2 {
+  color: $text-color-placeholder !important;
+}
+.zh-text-333 {
+  color: #333 !important;
+}
+.zh-text-666 {
+  color: #666 !important;
+}
+.zh-text-999 {
+  color: #999 !important;
+}
+// 背景状态色
+.zh-bg-red {
+  color: $bg-color-red !important;
+}
+.zh-bg-yellow {
+  color: $bg-color-yellow !important;
+}
+.zh-bg-green {
+  color: $bg-color-green !important;
+}
+.zh-bg-blue {
+  color: $bg-color-primary !important;
+}
+.zh-bg-gray {
+  color: $bg-color-gray !important;
+}
+// 双击单元格
+.zh-dbl-cell {
+  position: fixed;
+  z-index: 9;
+}
+.inblock {
+  display:inline-block;
+}
+/* 文本对齐 */
+.zh-text-left {
+  text-align: left !important;
+}
+.zh-text-center {
+  text-align: center !important;
+}
+.zh-text-right {
+  text-align: right !important;
+}
+/* 字体大小 */
+.zh-font-12 {
+  font-size: 12px !important;
+}
+.zh-font-13 {
+  font-size: 13px !important;
+}
+.zh-font-14 {
+  font-size: 14px !important;
+}
+.zh-font-15 {
+  font-size: 15px !important;
+}
+.zh-font-16 {
+  font-size: 16px !important;
+}
+.zh-font-18 {
+  font-size: 18px !important;
+}
+.zh-font-20 {
+  font-size: 20px !important;
+}
+/* 圆角 */ 
+.zh-radius-3 {
+  border-radius: 3px !important;
+}

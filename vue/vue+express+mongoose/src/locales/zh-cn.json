@@ -1,0 +1,12 @@
+{
+	"_element": "zh-CN",
+	"_name": "简体中文",
+	"currentLanguage": "当前语言",
+	"changeLanguage": "语言变更",
+	"navigator": {
+		"flightDynamic": "航班动态",
+		"page1": "页面1",
+		"unnameMenu": "未命名菜单",
+		"tempMenu": "临时菜单"
+	}
+}

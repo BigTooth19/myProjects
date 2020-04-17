@@ -1,0 +1,94 @@
+.page-login {
+  height: 100%;
+  background: url(~@/views/system/login/images/bg-login.png) no-repeat center #1D213C;
+  background-size: cover;
+  .zh-logo-text {
+    padding: 40px 0 0 40px;
+    strong {
+      padding-left: 15px;
+      border-left: 2px solid #fff;
+      margin-left: 15px;
+      font-size: 28px;
+      line-height: 48px;
+      color: #fff;
+      font-weight: normal;
+    }
+    img {
+      float: left;
+    }
+  }
+  .zh-login-main {
+    position: absolute;
+    z-index: 2;
+    right: 20%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 40px;
+    border-radius: 3px;
+    background-color: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px 0 rgba(0,0,0,0.25);
+    h2 {
+      margin-bottom: 30px;
+      font-size: 18px;
+      color: rgba(0,0,0,0.85);
+      text-align: center;
+    }
+    .zh-form-item {
+      position: relative;
+      margin-top: 15px;
+      input {
+        width: 320px;
+        height: 48px;
+        padding-left: 48px;
+        padding-right: 10px;
+        border-radius: 5px;
+        border: 1px solid rgba(0,0,0,0.15);
+        box-sizing: border-box;
+        line-height: 48px;
+        font-size: 14px;
+      }
+      .fa {
+        position: absolute;
+        z-index: 2;
+        left: 0;
+        top: 0;
+        display: block;
+        width: 48px;
+        height: 48px;
+        text-align: center;
+        line-height: 48px;
+        color: rgba(0,0,0,0.38);
+      }
+      .fa-lock {
+        font-size: 18px;
+      }
+    }
+    .zh-forget-password {
+      margin-top: 10px;
+      overflow: hidden;
+    }
+    .zh-forget-link {
+      float: right;
+      font-size: 12px;
+      color: #005FD1;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .zh-btn-login {
+      width: 100%;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  }
+}
+.zh-alert-forget {
+  .el-message-box__title {
+    color: rgba(255,255,255,0.9) !important;
+  }
+  .el-message-box__message {
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+    text-align: center;
+  }
+}
