@@ -64,7 +64,7 @@ export default {
       this.dialogs.edit = {
         visible: true,
         data: {
-          uid: +copyRow.uid,
+          uid: copyRow.uid,
           tel: copyRow.tel,
           username: copyRow.username,
           mlevel: +copyRow.mlevel,

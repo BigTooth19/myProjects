@@ -1,9 +1,5 @@
 <template>
 	<div class="page-login">
-		<div class="zh-logo-text">
-			<img src="~@/views/system/login/images/img-logo.png" alt="">
-			<strong>华夏航空航班查询系统</strong>
-		</div>
 		<div class="zh-login-main">
 			<h2>账号登录</h2>
 			<div class="zh-form-item">

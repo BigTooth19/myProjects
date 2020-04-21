@@ -84,7 +84,6 @@ export default {
         if (valid) {
           // 参数处理
           let params = Object.assign({}, this.form);
-          console.log('params:',params);
           // 请求
           this.loading = true;
           request.post('user/manage/add', params).then(res => {

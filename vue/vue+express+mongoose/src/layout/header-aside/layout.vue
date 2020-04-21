@@ -15,8 +15,7 @@
         flex-box="0"
         flex>
         <div class="logo-group" :style="{width: asideCollapse ? asideWidthCollapse : asideWidth}" flex-box="0">
-          <img :src="`${$baseUrl}image/theme/${themeActiveSetting.name}/logo/img-logo.png`">
-          <strong>华夏航空航班查询系统</strong>
+          <strong>LOGO</strong>
         </div>
         <d2-menu-header flex-box="1"/>
         <!-- 顶栏右侧 -->
