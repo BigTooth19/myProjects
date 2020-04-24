@@ -22,7 +22,17 @@ const User = mongoose.model('user', new mongoose.Schema({
         default: 1
     },
     token: String
-}));
+}), 'users');
+// let userDatas = [{"password":"123456","mlevel":1,"mclass":1,"status":1,"tel":"15856986261","unit_name":"faaf","username":"1111","created_time":"1587448758051","uid":"5e9e8bb613998a0e4407be66"},{"password":"123456","mlevel":0,"mclass":1,"status":1,"username":"chenamin","tel":"15856986260","unit_name":"afafaf","created_time":"1587449412988","uid":"5e9e8e44ee98300368c45093"}];
+// userDatas.forEach(item => {
+//     User.find({uid: item.uid}, (err, data) => {
+//         item.created_time = Date.now();
+//         if(!data || data.length < 1) {
+//             User.create(item);
+//         }
+//     });
+// });
+
 
 // 登录
 app.post('/authorize/login/', (req, res) => {
@@ -81,21 +91,22 @@ app.post('/manage/add/', (req, res) => {
     let params = req.body;
     params.created_time = Date.now();
     params.uid = new mongoose.Types.ObjectId;
-    User.create(params, (err, data) => {
-        if(err) {
-            res.send({
-                "code": -1,
-                "data": err,
-                "msg": "error"
-            });
-        } else {
-            res.send({
-                "code": 0,
-                "data": data,
-                "msg": "success"
-            });
-        }
-    });
+    
+    // User.create(params, (err, data) => {
+    //     if(err) {
+    //         res.send({
+    //             "code": -1,
+    //             "data": err,
+    //             "msg": "error"
+    //         });
+    //     } else {
+    //         res.send({
+    //             "code": 0,
+    //             "data": data,
+    //             "msg": "success"
+    //         });
+    //     }
+    // });
     
 });
 // 保存修改

@@ -120,12 +120,12 @@ export default {
 				model_time: this.dateSelect.value,
 				token: opts.token
 			};
-			if(opts.start_datetime) {
-				params.start_datetime = opts.start_datetime;
-			}
-			if(opts.end_datetime) {
-				params.end_datetime = opts.end_datetime;
-			}
+			// if(opts.start_datetime) {
+			// 	params.start_datetime = opts.start_datetime;
+			// }
+			// if(opts.end_datetime) {
+			// 	params.end_datetime = opts.end_datetime;
+			// }
 			request.get('/flight/main/lists/', {
 				params,
 				cancelToken: new CancelToken(function executor(c) {
@@ -136,13 +136,13 @@ export default {
 				if(res.data && res.data.param) {
 					this.dataUpdateFn(res.data.data);
 					// 数据更新
-					if(opts.init) {
-						this.getListFn({...params, token: res.data.param.token});
-					} else {
-						getListTimer = setTimeout(function() {
-							vm.getListFn({...params, token: res.data.param.token});
-						}, 45000);
-					}
+					// if(opts.init) {
+					// 	this.getListFn({...params, token: res.data.param.token});
+					// } else {
+					// 	getListTimer = setTimeout(function() {
+					// 		vm.getListFn({...params, token: res.data.param.token});
+					// 	}, 45000);
+					// }
 				} else {
 					this.$message.info(res.msg);
 					// 数据初始化

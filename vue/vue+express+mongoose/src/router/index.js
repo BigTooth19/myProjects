@@ -60,7 +60,7 @@ router.beforeEach(async (to, from, next) => {
     });
     return;
   }
-  if ((userInfo.uid !== undefined || userInfo.mlevel == 1) && (sessionStorage.getItem('curPath') || to.matched[0].path === '*')) {
+  if ((userInfo.uid !== undefined) && (sessionStorage.getItem('curPath') || to.matched[0].path === '*')) {
     sessionStorage.removeItem('curPath');
     // 还原路由
     router.matcher = new VueRouter({

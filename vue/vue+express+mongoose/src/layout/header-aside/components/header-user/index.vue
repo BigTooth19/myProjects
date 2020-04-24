@@ -3,7 +3,7 @@
     <span class="btn-text">{{userinfo.tel ? `${userinfo.tel}` : '未登录'}}</span>
     <d2-icon name="user-circle-o zh-text-white"></d2-icon>
     <el-dropdown-menu slot="dropdown">
-      <el-dropdown-item @click.native="toUserManage" v-if="userinfo.mlevel == 1">
+      <el-dropdown-item @click.native="toUserManage">
         <d2-icon name="user" class="d2-mr-5"/>
         用户管理
       </el-dropdown-item>

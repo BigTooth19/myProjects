@@ -12,8 +12,8 @@ app.get('/', (req, res) => {
 
 const user = require('./api/user');
 app.use('/vue-demo1/user/', user);
-// const flight = require('./api/flight');
-// app.use('/api/flight/', flight);
+const flight = require('./api/flight');
+app.use('/vue-demo1/flight/', flight);
 
 app.listen(3001, () => {
     console.log('http://localhost:3001/');
