@@ -8,12 +8,14 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^3.2.0",
     "core-js": "^2.6.5",
     "element-ui": "^2.12.0",
     "express": "^4.17.1",
-    "express-session": "^1.16.2",
-    "mysql": "^2.17.1",
-    "nedb-session-store": "^1.1.2",
+    "express-session": "^1.17.1",
+    "mavon-editor": "^2.9.0",
+    "mongoose": "^5.9.10",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
     "vue-property-decorator": "^8.1.0",

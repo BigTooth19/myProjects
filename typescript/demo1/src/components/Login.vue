@@ -2,6 +2,7 @@
     <el-dialog
         title="登录"
         :visible.sync="layer"
+        :close-on-click-modal="false"
         width="400px"
         class="am-login-layer"
     >

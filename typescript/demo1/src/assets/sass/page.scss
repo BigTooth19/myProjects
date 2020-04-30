@@ -245,7 +245,6 @@ $gray1-color: #ccc;
         }
         .tag-input{
             position: relative;
-            margin-left: 305px;
             border: 1px solid #ccc;
             border-radius: 3px;
             vertical-align: middle;
@@ -265,6 +264,9 @@ $gray1-color: #ccc;
                 width: 520px;
                 border: 1px solid #ddd;
                 box-shadow: 0px 6px 12px 0px rgba(0,0,0,0.18);
+                &.on{
+                    display: block;
+                }
                 span{
                     display: inline-block;
                     margin: 0 5px 5px 0;
@@ -315,7 +317,6 @@ $gray1-color: #ccc;
     top: 239px;
     bottom: 15px;
     z-index: 2;
-    padding-top: 30px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 3px;

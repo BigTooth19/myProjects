@@ -2,13 +2,14 @@
     <el-dialog
         title="注册"
         :visible.sync="layer"
+        :close-on-click-modal="false"
         width="400px"
         class="am-login-layer"
     >
          <ul class="am-login-field">
             <li class="input-box">
                 <span class="iconfont icon-user"></span>
-                <input type="text" v-model="user" placeholder="请输入用户名">
+                <input type="text" v-model="username" placeholder="请输入用户名">
             </li>
             <li class="input-box">
                 <span class="iconfont icon-password"></span>
@@ -27,7 +28,7 @@ import service from '../utils/request';
 @Component
 export default class Register extends Vue {
     private layer: boolean = false;
-    private user: string = '';  // 用户名
+    private username: string = '';  // 用户名
     private userError: boolean = false;  // 判断用户名是否错
     private password: string = '';
     private passwordError: boolean = false;
@@ -37,7 +38,7 @@ export default class Register extends Vue {
     }
     // 格式判断
     verifyFn() {
-        if(this.user === '') {
+        if(this.username === '') {
             this.$message.error('用户名不能为空');
             this.userError = false;
             return false;
@@ -60,13 +61,14 @@ export default class Register extends Vue {
         }
         interface Request {
             code: number;
+            data?: object;
             msg: string;
         }
         service({
             type: 'post',
             url: '/user/register',
             data: {
-                username: this.user,
+                username: this.username,
                 password: this.password
             },
             success: (res: Request) => {
