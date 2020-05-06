@@ -35,6 +35,7 @@ import { State, Getter, Action, Mutation } from 'vuex-class';
 import service from '../utils/request';
 import Login from './Login.vue';
 import Register from './Register.vue';
+import { VueDecorator } from 'vue-class-component';
 @Component({
     components:{
         Login,
@@ -72,7 +73,10 @@ export default class Header extends Vue {
                 }
             });
         } else if(command === 'write') { // 写文章
-            this.$router.push('/write');
+            let routerUrl = (this as any).$router.resolve({
+                path: '/write'
+            });
+            window.open(routerUrl.href, '_blank');
         }
     }
     mounted() {

@@ -45,4 +45,16 @@ a{text-decoration: none;}
     visibility: hidden;
     clear: both;
 }
-
+.el-tag{
+    background-color: transparent;
+    border: none;
+    color: #017E66;
+    .el-tag__close{
+        top: 0;
+        right: 0;
+        color: #017E66;
+        &:hover{
+            background-color: #017E66;
+        }
+    }
+}

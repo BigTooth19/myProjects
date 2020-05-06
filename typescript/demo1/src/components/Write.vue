@@ -1,57 +1,41 @@
 <template>
-    <div class="am-write-box">
+    <div class="am-write-box" @click="bodyClickFn">
         <div class="am-write-header clearfix">
             <h2>{{title}}</h2>
             <input class="am-btn-issue" type="button" :value="btnText" @click="saveArticleFn"/>
         </div>
         <div class="am-article-tit">
-            <el-select
-            class="am-write-select clearfix"
-            popper-class="am-write-option"
-            placeholder="请选择"
-            v-model="typeVal"
-            >
-                <el-option
-                v-for="(item) in typeList"
-                :key="`typeList_${item.value}`"
-                :label="item.label"
-                :value="item.value"
-                >
-                </el-option>
-            </el-select>
             <div class="input-box">
-                <input type="text" v-model.trim="form.title" placeholder="请输入标题">
+                <input type="text" v-model.trim="articleTit" placeholder="请输入标题">
             </div>
         </div>
         <div class="am-article-tag">
-            <div class="tag-input">
-                <input
-                type="text"
-                placeholder="标签，如：php(用逗号，分号，分隔)"
-                v-model.trim="form.tags"
-                @click.stop="showTagList"
-                >
+            <div class="tag-input" @click.stop="showTagFn">
                 <el-tag
-                :key="`selectTags_${item}`"
-                v-for="item in selectedTagList"
+                :key="tag"
+                v-for="tag in tagList.selected"
                 closable
                 :disable-transitions="false"
-                @close="removeTag(item)">
-                {{item.name}}
+                @close="tagCloseFn(tag)">
+                {{tag}}
                 </el-tag>
+                <span class="add-tag">+添加标签</span>
                 <div class="dropdown-tag" :class="{on: tagList.show}">
                     <span
                     :key="`articleTags_${item}`"
                     v-for="item in tagList.list"
+                    @click="selectTagFn(item)"
                     >{{item}}</span>
                 </div>
             </div>
         </div>
-        <div class="am-article-editor" :style="{top: style.editorTop+'px'}">
+        <div class="am-article-editor">
             <mavon-editor 
-            v-model = 'editorContent'
-            :ishljs="true"
-            ref=md @imgAdd="$imgAdd" @imgDel="$imgDel"
+                :ishljs="true"
+                ref="md"
+                v-model='editorContent'
+                @imgAdd="$imgAdd"
+                @imgDel="$imgDel"
             />
         </div>
     </div>
@@ -102,50 +86,37 @@ export default class Home extends Vue {
         tabIndent: 2
     };
     // 表单
-    form: {
-        [index: string]: number | string;
-    } = {
-        type: 1,
-        title: '',
-        content: '',
-        origin_link: '',
-        tags: '',
-        channels: '',
-        feature: 0
-    };
-    // 类型列表
-    typeList: Array<{
-        value: string;
-        label: string;
-    }> = [
-        {value: '1', label: '原创'},
-        {value: '2', label: '转载'},
-        {value: '3', label: '翻译'}
-    ];
-    typeVal: string = '原创';
-    // 样式
-    style: {
-        [index: string]: number;
-    } = {
-        editorTop: 239
-    };
+    articleTit: string = '';
     // 标签
-    selectedTagList: string[] = [];
     tagList: {
         show: boolean;
         list: string[];
+        selected: string[];
     } = {
         show: false,
-        list: ['vue', 'react', 'webpack', 'mongoose']
+        list: ['vue','vue-router', 'vuex', 'react', 'redux', 'webpack', 'mongoose', 'php', 'mysql', 'http'],
+        selected: []
     };
+    // markdown编辑器
     editorContent: string = '';
-    img_file:Array<any> = [];
+    img_file: Array<any> = [];
    
     create() {
     }
+    bodyClickFn() {
+        this.tagList.show = false;
+    }
     // 展示标签
-    showTagList() {
+    showTagFn() {
         this.tagList.show = true;
+    }
+    selectTagFn(tag) {
+        if(!this.tagList.selected.includes(tag)) {
+            this.tagList.selected.push(tag);
+        }
+    }
+    tagCloseFn(tag) {
+        this.tagList.selected.splice(this.tagList.selected.indexOf(tag), 1);
     }
     // 绑定@imgAdd event
     $imgAdd(pos, $file) {
@@ -153,23 +124,35 @@ export default class Home extends Vue {
         var formdata = new FormData();
         formdata.append('image', $file);
         this.img_file[pos] = $file;
-        service({
-            url: '/api/edit/uploadimg',
-            method: 'post',
-            data: formdata,
-            headers: { 'Content-Type': 'multipart/form-data' },
-            success: (url: string) => {
-                this.$refs.md.$img2Url(pos, url);
-            }
-        })
+        // console.log('imgAdd',$file);
+        // service({
+        //     url: '/api/edit/uploadimg',
+        //     method: 'post',
+        //     data: formdata,
+        //     headers: { 'Content-Type': 'multipart/form-data' },
+        //     success: (url: string) => {
+        //         (this.$refs.md as any).$img2Url(pos, url);
+        //     }
+        // })
     }
     $imgDel(pos) {
         delete this.img_file[pos];
     }
     // 保存文章
     saveArticleFn() {
-        let params: Object = {};
-        console.log(this.typeVal, this.form.title);
+        let params: Object = {
+            title: this.articleTit,
+            tags: this.tagList.selected,
+            content: this.editorContent
+        };
+        service({
+            type: 'post',
+            url: '/article/add',
+            data: params,
+            success: (res: object) => {
+                console.log('res:',res);
+            }
+        });
     }
 }
 </script>

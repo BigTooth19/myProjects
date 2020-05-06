@@ -4,12 +4,12 @@ const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 
 app.use(session({
-    　　secret: 'keyboard cat',
-    　　resave: false,
-    　　saveUninitialized: true,
-    　　rolling:true,
-    　　cookie:{
-    　　maxAge:100000
+　　secret: 'keyboard cat',
+　　resave: false,
+　　saveUninitialized: true,
+　　rolling:true,
+　　cookie:{
+    　　maxAge: 1000*3600*24
     },
     store: new MongoStore({
     　　url: 'mongodb://127.0.0.1:27017/login',

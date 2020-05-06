@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
     if(req.session.login) {
         res.send(req.session.login);
     } else {
-        res.send('');
+        res.send({code: 1, msg: '请重新登录'});
     }
 });
 
@@ -28,9 +28,9 @@ app.post('/register', (req, res) => {
                 User.create(params, (err, data) => {
                     if(!err){
                         res.send({
-                            "code": 0,
-                            "data": data,
-                            "msg": "注册成功"
+                            code: 0,
+                            data: data,
+                            msg: '注册成功'
                         });
                     }
                 });
@@ -67,6 +67,7 @@ app.post('/logout', (req, res) => {
     req.session.login = {
         login: false
     };
+    console.log('logout-session:', res.session);
     res.json({
         code: 0,
         msg: '退出成功'

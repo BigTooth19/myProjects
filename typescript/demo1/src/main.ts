@@ -3,7 +3,7 @@ import router from './router';
 import store from './store';
 import App from './App.vue';
 import './element-variables.scss';
-import { Pagination, Dialog, MessageBox, Message, Loading, Menu, MenuItem, Dropdown, DropdownMenu, DropdownItem, Select, Option, Button } from 'element-ui';
+import { Pagination, Dialog, MessageBox, Message, Loading, Menu, MenuItem, Dropdown, DropdownMenu, DropdownItem, Select, Option, Button, Tag } from 'element-ui';
 
 Vue.use(Pagination);
 Vue.use(Dialog);
@@ -17,6 +17,7 @@ Vue.use(DropdownItem);
 Vue.use(Select);
 Vue.use(Option);
 Vue.use(Button);
+Vue.use(Tag);
 
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$msgbox = MessageBox;
