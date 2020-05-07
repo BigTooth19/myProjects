@@ -92,21 +92,21 @@ app.post('/manage/add/', (req, res) => {
     params.created_time = Date.now();
     params.uid = new mongoose.Types.ObjectId;
     
-    // User.create(params, (err, data) => {
-    //     if(err) {
-    //         res.send({
-    //             "code": -1,
-    //             "data": err,
-    //             "msg": "error"
-    //         });
-    //     } else {
-    //         res.send({
-    //             "code": 0,
-    //             "data": data,
-    //             "msg": "success"
-    //         });
-    //     }
-    // });
+    User.create(params, (err, data) => {
+        if(err) {
+            res.send({
+                "code": -1,
+                "data": err,
+                "msg": "error"
+            });
+        } else {
+            res.send({
+                "code": 0,
+                "data": data,
+                "msg": "success"
+            });
+        }
+    });
     
 });
 // 保存修改

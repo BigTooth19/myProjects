@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>会话-下载页</title>
+  <link href="https://cdn.bootcss.com/meyer-reset/2.0/reset.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/a_cdm_down.css">
+  <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+  <script>
+    var  deviceWidth = document.documentElement.clientWidth;
+    if(deviceWidth > 640) deviceWidth =640;
+    document.documentElement.style.fontSize = deviceWidth /6.4+'px';
+  </script>
+</head>
+<body>
+  <div class="down_box">
+    <div class="down_arrow"><img src="./images/acdm_down_arrow_03.png" alt=""></div>
+    <div class="logo_box">
+      <img src="./images/adcm_down.png" alt="">
+    </div>
+    <div class="downBtn down_btn down_btn_android">
+      <img src="images/adcm_down_andrio.png" alt="">立即下载Android
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    $('.downBtn').click(function(e){
+      window.location.href = 'http://www.goms.com.cn/acdm/china-a-cdm.apk';
+    });
+
+    $(document).on('touchstart','.downBtn',function(){
+      var ua = navigator.userAgent.toLowerCase();
+      if(ua.match(/MicroMessenger/i)=="micromessenger" || ua.match(/WeiBo/i) == "weibo") {
+        $('.down_arrow').css('visibility', 'visible');
+      }
+    });
+  </script>
+</body>
+</html>

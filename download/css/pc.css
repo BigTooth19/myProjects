@@ -1,0 +1,178 @@
+body{
+    background: url(../images/web_bg.png) center center no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+.am-logo{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    display: block;
+    width: 74px;
+    height: 74px;
+    background: url(../images/logo.png) 0 0 no-repeat;
+    background-size: contain;
+}
+.am-container{
+    position: relative;
+    margin: 0 auto;
+    width: 389px;
+    height: 1091px;
+    text-align: center;
+}
+.am-sidebar{
+    position: absolute;
+}
+.am-sidebar img{
+    position: absolute;
+}
+.am-side-left{
+    top: 275px;
+    right: 140%;
+    animation: moveleft 500ms ease-in;
+    -wekbit-animation: moveleft 500ms ease-in;
+    -moz-animation: moveleft 500ms ease-in;
+}
+@keyframes moveleft{
+    from {right:180%;}
+    to {right:140%;}
+}
+@keyframes -webkit-moveleft{
+    from {right:180%;}
+    to {right:140%;}
+}
+@keyframes -moz-moveleft{
+    from {right:180%;}
+    to {right:140%;}
+}
+.am-side-left .img1{
+    top: 0;
+    right: 0;
+}
+.am-side-left .img2{
+    top: 260px;
+    right: 185px;
+}
+.am-side-left .img3{
+    top: 406px;
+    right: 2px;
+}
+.am-side-right{
+    top: 280px;
+    left: 120%;
+    animation: moveright 500ms ease-in;
+    -wekbit-animation: moveright 500ms ease-in;
+    -moz-animation: moveright 500ms ease-in;
+}
+@keyframes moveright{
+    from {left:160%;}
+    to {left:120%;}
+}
+@keyframes -webkit-moveright{
+    from {left:160%;}
+    to {left:120%;}
+}
+@keyframes -moz-moveright{
+    from {left:160%;}
+    to {left:120%;}
+}
+.am-side-right .img4{
+    top: 62px;
+    left: 220px;
+}
+.am-side-right .img5{
+    top: 320px;
+    left: 70px;
+}
+.am-main{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 40px 0 30px;
+    color: #fff;
+    text-align: center;
+    animation: movemain 500ms ease-in;
+}
+@keyframes movemain{
+    from {top: -100px;}
+    to {top: 0;}
+}
+@keyframes -webkit-movemain{
+    from {top: -100px;}
+    to {top: 0;}
+}
+@keyframes -moz-movemain{
+    from {top: -100px;}
+    to {top: 0;}
+}
+.am-main .tit{
+    margin-bottom: 20px;
+    font-size: 42px;
+    font-weight: normal;
+    opacity: .9;
+    letter-spacing: 4px;
+}
+.am-main .info{
+    margin-bottom: 35px;
+    font-size: 15px;
+    letter-spacing: 4px;
+    opacity: .8;
+}
+.am-code{
+    font-size: 13px;
+}
+.am-code img{
+    margin-top: 22px;
+    margin-bottom: 5px;
+    width: 128px;
+    height: 128px;
+}
+@media screen and (max-width: 1440px) {
+    .am-logo{
+        width: 60px;
+        height: 60px;
+    }
+    .am-container{
+        width: 340px;
+        height: 967px;
+    }
+    .am-main .tit{
+        font-size: 36px;
+    }
+    .am-main .info{
+        font-size: 13px;
+    }
+    .am-main .img{
+        width: 340px;
+    }
+    .am-side-left{
+        right: 120%;
+    }
+    @keyframes moveleft{
+        from {right:160%;}
+        to {right:120%;}
+    }
+    @keyframes -webkit-moveleft{
+        from {right:160%;}
+        to {right:120%;}
+    }
+    @keyframes -moz-moveleft{
+        from {right:160%;}
+        to {right:120%;}
+    }
+    .am-side-right{
+        left: 100%;
+    }
+    @keyframes moveright{
+        from {left:140%;}
+        to {left:100%;}
+    }
+    @keyframes -webkit-moveright{
+        from {left:140%;}
+        to {left:100%;}
+    }
+    @keyframes -moz-moveright{
+        from {left:140%;}
+        to {left:100%;}
+    }
+}
