@@ -1,4 +1,5 @@
-# demo1
+# typescript+node+mongoose实现的一个登录/注册/编辑文档的东西
+# 需要另行安装mongdb
 
 ## Project setup
 ```
@@ -27,3 +28,4 @@ yarn run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+

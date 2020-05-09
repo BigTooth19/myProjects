@@ -6,6 +6,8 @@ const Article = mongoose.model('article', new mongoose.Schema({
     title: String,
     tags: String,
     content: String,
+    favs: {type: Number, default: 0},
+    createTime: { type: Date, default: Date.now }
 }), 'articles');
 // 存入文章
 app.post('/add', (req, res) => {
