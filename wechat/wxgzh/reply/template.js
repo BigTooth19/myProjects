@@ -6,7 +6,8 @@ module.exports = opts => {
 			  <ToUserName><![CDATA[${opts.toUserName}]]></ToUserName>
 			  <FromUserName><![CDATA[${opts.fromUserName}]]></FromUserName>
 			  <CreateTime>${opts.createTime}</CreateTime>
-			  <MsgType><![CDATA[${opts.msgType}]]></MsgType>`;
+			  <MsgType><![CDATA[${opts.msgType}]]></MsgType>
+			  <Url><![CDATA[${opts.url}]]></Url>`;
 
 	switch(opts.msgType) {
 		case 'text':

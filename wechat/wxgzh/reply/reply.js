@@ -14,7 +14,7 @@ module.exports = (message) => {
 	if(message.MsgType === 'text') {
 		// 判断用户发送的消息内空具体是什么
 		if(message.Content === '1') {
-			content = '大吉大利';
+			content = '222';
 		} else if(message.Content === '2') {
 			content = '落地成河';
 		} else if(message.Content.match('爱')) {
@@ -50,5 +50,6 @@ module.exports = (message) => {
 	}
 
 	opts.content = content;
+	opts.url = 'http://3k047177t9.zicp.vip/search';
 	return opts;
 }
