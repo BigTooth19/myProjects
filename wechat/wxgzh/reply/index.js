@@ -28,6 +28,7 @@ module.exports = () => {
 	  		const message = formatMessage(jsData);
 
 	  		let opts = reply(message);
+	  		console.log('replay',opts);
 	  		let replyMessage = template(opts);
 	  		console.log(replyMessage);
 			res.send(replyMessage);

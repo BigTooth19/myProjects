@@ -32,8 +32,7 @@ class Wechat {
 				console.log(err);
 				reject('getAccessToken出现错误:'+err);
 			});
-		});
-		
+		});	
 	}
 
 	/*
@@ -185,6 +184,7 @@ class Wechat {
 				const data = await this.fetchAccessToken();
 				const url = `${menuApi.create}?access_token=${data.access_token}`;
 				const result = await rp({method: 'POST', url, json: true, body: menu});
+				// console.log(data);
 				resolve(result);
 			} catch(e) {
 				reject('createMenu');
@@ -200,6 +200,7 @@ class Wechat {
 				const data = await this.fetchAccessToken();
 				const url = `${menuApi.delete}?access_token=${data.access_token}`;
 				const result = await rp({method: 'GET', url, json: true});
+				console.log(result);
 				resolve(result);
 				
 			} catch(e) {
@@ -209,13 +210,12 @@ class Wechat {
 	}
 }
 
-// (async ()=> {
-// 	const w = new Wechat();
-// 	let result = await w.deleteMenu();
-// 	result = await w.createMenu(menu);
-// 	console.log('createmenu', result);
-// 	const data = await w.fetchTicket();
-// 	console.log(data);
-// })();
+(async ()=> {
+	const w = new Wechat();
+	let result = await w.deleteMenu();
+	result = await w.createMenu(menu);
+	console.log('createmenu', result);
+	const data = await w.fetchTicket();
+})();
 
 module.exports = Wechat;

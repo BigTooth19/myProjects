@@ -9,9 +9,9 @@ const {url} = require('../config');
 
 const wechatApi = new Wechat(); //创建实例对象
 
-
 // 页面路由
-router.get('/', async (req, res) => {
+router.get('/search', async (req, res) => {
+
     /*
         生成js-sdk使用的方法
         1.四个参数 jsapi_ticket（临时票据）,noncestr(随机字符串),timestamp（时间戳），url(当前服务器地址)
@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
     const str = arr.sort().join('&');
     // 进行sha1加密，最终成生signature
     const signature = sha1(str);
-    console.log('signature',signature);
+    res.send(req);
     // 将渲染好的页面返回给服务器
     res.render('search', {
         signature,

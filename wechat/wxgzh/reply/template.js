@@ -40,18 +40,26 @@ module.exports = opts => {
 							</Music>`;
 			break;
 		case 'news':
-			replyMessage += `<ArticleCount>${opts.content.length}</ArticleCount>
-								<Articles>`;
-			opts.content.forEach(item => {
-				replyMessage += `<item>
-									<Title><![CDATA[${item.title}]]></Title>
-									<Description><![CDATA[${item.description1}]]></Description>
-									<PicUrl><![CDATA[${item.picurl}]]></PicUrl>
-									<Url><![CDATA[${item.url}]]></Url>
-								</item>`;
-			});
+			replyMessage += `<ArticleCount>1</ArticleCount>
+							<Articles>
+								<item>
+									<Title><![CDATA[${opts.title}]]></Title>
+									<Description><![CDATA[${opts.description}]]></Description>
+									<Url><![CDATA[${opts.url}]]></Url>
+								</item>
+							</Articles>`;
+			// replyMessage += `<ArticleCount>${opts.content.length}</ArticleCount>
+			// 					<Articles>`;
+			// opts.content.forEach(item => {
+			// 	replyMessage += `<item>
+			// 						<Title><![CDATA[${item.title}]]></Title>
+			// 						<Description><![CDATA[${item.description1}]]></Description>
+			// 						<PicUrl><![CDATA[${item.picurl}]]></PicUrl>
+			// 						<Url><![CDATA[${item.url}]]></Url>
+			// 					</item>`;
+			// });
 								
-			replyMessage += `</Articles>`;
+			// replyMessage += `</Articles>`;
 			break;
 	}
 

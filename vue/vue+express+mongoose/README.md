@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## 开发规范
 
 1. 文件及目录命名参考已经创建好的
@@ -88,3 +89,8 @@ push到远程仓库
 ```
 > git reset HEAD~ // 上一次提交
 ```
+=======
+## 使用技术vue+express+mongoose
+需要安装mongdb
+使用框架d2amin
+>>>>>>> d98f285e38e63d96ce3c6ee64c1f5c762bbd25d6

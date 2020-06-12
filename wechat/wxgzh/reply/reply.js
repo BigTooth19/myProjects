@@ -10,16 +10,24 @@ module.exports = (message) => {
 	}
 
 	let content = '您在说什么，我听不懂';
+	console.log();
 	// 判断用户发送的消息是否是文本消息
 	if(message.MsgType === 'text') {
-		// 判断用户发送的消息内空具体是什么
-		if(message.Content === '1') {
-			content = '222';
-		} else if(message.Content === '2') {
-			content = '落地成河';
-		} else if(message.Content.match('爱')) {
-			content = '我爱你~';
+		if(message.Content === 'new') {
+			content="新闻";
+			opts.title="新闻";
+			opts.description = "新闻";
+			opts.msgType = 'news';
+			opts.url = 'http://3k047177t9.zicp.vip/search';
 		}
+		// 判断用户发送的消息内空具体是什么
+		// if(message.Content === '1') {
+		// 	content = '222';
+		// } else if(message.Content === '2') {
+		// 	content = '落地成河';
+		// } else if(message.Content.match('爱')) {
+		// 	content = '我爱你~';
+		// }
 	} else if(message.MsgType === 'voice') {
 		opts.msgType = 'voice';
 		opts.mediaId = message.MediaId;
@@ -50,6 +58,5 @@ module.exports = (message) => {
 	}
 
 	opts.content = content;
-	opts.url = 'http://3k047177t9.zicp.vip/search';
 	return opts;
 }
