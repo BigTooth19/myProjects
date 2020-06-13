@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body style="margin: 0;background-color: #15181B;">
+<script type="text/javascript">
+var str = '计划时间-计划过站时间不足:2101;晚关舱门-[晚开舱门-其他原因(aaaa):2213,晚开登机口-登机口冲突:2221,晚关登机口-值机柜台晚开放:2231]';
+str = str.split(';');
+var reasons = {};
+reasons = getForamt(str[0].toString());
+
+function getForamt(reason, type) {
+	let result = {};
+	if(reason.includes('-[')) {
+		result.child = reason.slice(reason.indexOf('[')+1, reason.indexOf(']')).split(',');
+		result.child = result.child.map(item => {
+			return getForamt(item,'select');
+		})
+	}
+	if(reason.includes('天气')) {
+		result.selectVal = reason.split(';')[1];
+	}
+	reason = reason.replace(/(\[.*\])/g, '').split('-');
+	result.text = reason[0];
+	if(reason[1] === undefined) return;
+	if(reason[1].includes(':')) {
+		result.code = reason[1].substr(reason[1].indexOf(':')+1);
+		reason[1] = reason[1].replace(/\:.*/g, '');
+	}
+	if(reason[1].includes('(')) {
+		result.input = reason[1].slice(reason[1].indexOf('(')+1,reason[1].indexOf(')')); 
+		reason[1] = reason[1].replace(/\(.*\)/g, '');
+	}
+	if(type === 'select') {
+		result.selectVal = reason[1];
+	} else {
+		result.child = {
+			text: reason[1]
+		}
+		
+	}
+	return result;
+}
+console.log(reasons);
+</script>
+</body>
+</html>
