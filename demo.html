@@ -5,7 +5,7 @@
 </head>
 <body style="margin: 0;background-color: #15181B;">
 <script type="text/javascript">
-var str = '计划时间-计划过站时间不足:2101;晚关舱门-[晚开舱门-其他原因(aaaa):2213,晚开登机口-登机口冲突:2221,晚关登机口-值机柜台晚开放:2231]';
+var str = '天气-雷雨-计划过站时间不足(afafa):2101;计划时间-计划过站时间不足:2101;晚关舱门-[晚开舱门-其他原因(aaaa):2213,晚开登机口-登机口冲突:2221,晚关登机口-值机柜台晚开放:2231]';
 str = str.split(';');
 var reasons = {};
 reasons = getForamt(str[0].toString());
@@ -18,8 +18,10 @@ function getForamt(reason, type) {
 			return getForamt(item,'select');
 		})
 	}
+
 	if(reason.includes('天气')) {
-		result.selectVal = reason.split(';')[1];
+		result.selectVal = reason.split('-')[1];
+		reason = reason.replace(`-${result.selectVal}`, '');
 	}
 	reason = reason.replace(/(\[.*\])/g, '').split('-');
 	result.text = reason[0];
